@@ -26,6 +26,8 @@ typedef struct {
 image_t load_image(char *file)
 {
     image_t out;
+
+    stbi_set_flip_vertically_on_load(1);
     out.data = (pixel_t *)stbi_load(file, &out.width, &out.height, &out.chan, 4);     
     out.count = out.width * out.height;
     return out;
@@ -57,13 +59,13 @@ int main(int argc, char **argv)
         o->r = (u8)(powf(a.r/255.f, 2.2f)*255);
         o->g = (u8)(powf(a.g/255.f, 2.2f)*255);
         o->b = (u8)(powf(a.b/255.f, 2.2f)*255);
-        o->a = 0xff;
+        o->a = m.r;
 
         o = out2 + i;
 
         o->r = n.r;
         o->g = n.g;
-        o->b = r.r;
+        o->b = n.b;
         o->a = m.r;
     }
     
