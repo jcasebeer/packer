@@ -36,7 +36,7 @@ image_t load_image(char *file)
 int main(int argc, char **argv)
 {
 
-    image_t albedo = load_image("albedom.png");
+    image_t albedo = load_image("albedo.png");
     image_t normal = load_image("normal.png");
     image_t roughness = load_image("roughness.png");
     image_t metallic = load_image("metallic.png");
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
         o->a = r.r;
     }
     
-    stbi_write_png("albedo.png", width, height, 4, out, 0);
+    stbi_write_png("albedom.png", width, height, 4, out, 0);
     stbi_write_png("normrough.png", width, height, 4, out2, 0);
     
     return 0;
